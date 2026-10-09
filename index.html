@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#1b1f24" />
+    <title>Interfaces</title>
+    <meta
+      name="description"
+      content="A talk about interfaces: their history, present, and future"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <slidem-deck font="Open Sans Condensed" loading>
+      <slidem-slide name="Title" center in="fade" out="fade" background="--ink">
+        <h1 uppercase fit color="--paper">Interfaces</h1>
+        <p uppercase center font-size="64px" line-height="2" color="--muted">
+          History, present, and future
+        </p>
+        <p slot="notes">
+          Introduce yourself. This talk walks through where interfaces came
+          from, where they are now, and why text is about to matter again.
+        </p>
+      </slidem-slide>
+
+      <slidem-slide
+        name="What is an interface"
+        center
+        in="fade"
+        out="slide"
+        background="--ink"
+      >
+        <div center>
+          <svg
+            class="diagram"
+            viewBox="0 0 1600 480"
+            width="1600"
+            height="480"
+            aria-label="A user on the left, a product on the right, an interface in between"
+          >
+            <!-- User -->
+            <g class="figure" transform="translate(200 200)">
+              <circle cx="0" cy="-90" r="50" />
+              <path d="M -90 110 V 40 A 90 90 0 0 1 90 40 V 110" />
+            </g>
+            <!-- Arrows -->
+            <path
+              class="arrow"
+              d="M 340 160 H 640 M 610 130 L 640 160 L 610 190"
+            />
+            <path
+              class="arrow"
+              d="M 660 240 H 360 M 390 210 L 360 240 L 390 270"
+            />
+            <!-- Interface -->
+            <rect class="gate" x="660" y="60" width="280" height="280" rx="8" />
+            <!-- Arrows -->
+            <path
+              class="arrow"
+              d="M 960 160 H 1260 M 1230 130 L 1260 160 L 1230 190"
+            />
+            <path
+              class="arrow"
+              d="M 1280 240 H 980 M 1010 210 L 980 240 L 1010 270"
+            />
+            <!-- Product -->
+            <g class="figure" transform="translate(1400 200)">
+              <path d="M -100 -100 H 100 V 100 H -100 Z" />
+              <path d="M -60 -60 H 60 V 60 H -60 Z" />
+              <path
+                d="M 0 -60 V -100 M 0 60 V 100 M -60 0 H -100 M 60 0 H 100"
+              />
+            </g>
+            <text class="label" x="200" y="440">user</text>
+            <text class="label accent" x="800" y="440">interface</text>
+            <text class="label" x="1400" y="440">product</text>
+          </svg>
+        </div>
+        <p slot="notes">
+          An interface is the gateway through which a user interacts with our
+          product. Everything the user does passes through it, and everything
+          the product gives back passes through it too. The product can be
+          brilliant, but the user only ever meets the interface.
+        </p>
+      </slidem-slide>
+
+      <slidem-slide
+        name="Context matters"
+        center
+        out="fade"
+        background="--paper"
+      >
+        <h1 uppercase fit color="--ink">Context matters</h1>
+        <p slot="notes">
+          A good interface is not good in the abstract. It is good for a user,
+          in a place, with a device, with a goal, at a moment. Change any of
+          those and the right interface changes with it.
+        </p>
+      </slidem-slide>
+
+      <slidem-slide
+        name="Context changes"
+        center
+        in="fade"
+        background="--paper"
+      >
+        <h1 uppercase fit color="--ink">Context changes</h1>
+        <p slot="notes">
+          And context does not sit still. Each time the way people reach us
+          changes, the interface that worked before stops working. Point at the
+          next slide: this has already happened several times.
+        </p>
+      </slidem-slide>
+
+      <slidem-slide
+        name="Storefront to phone"
+        center
+        in="slide"
+        out="fade"
+        background="--ink"
+      >
+        <div center>
+          <svg
+            class="diagram"
+            viewBox="0 0 1600 500"
+            width="1600"
+            height="500"
+            aria-label="A storefront, then a desktop computer, then a mobile phone"
+          >
+            <!-- Storefront -->
+            <g class="figure" transform="translate(260 250)">
+              <path d="M -150 -40 V 170 H 150 V -40" />
+              <path d="M -170 -40 L -130 -140 H 130 L 170 -40" />
+              <path
+                d="M -170 -40 Q -153 0 -136 -40 Q -119 0 -102 -40 Q -85 0 -68 -40 Q -51 0 -34 -40 Q -17 0 0 -40 Q 17 0 34 -40 Q 51 0 68 -40 Q 85 0 102 -40 Q 119 0 136 -40 Q 153 0 170 -40"
+              />
+              <rect x="-110" y="20" width="110" height="100" />
+              <path d="M 40 170 V 30 H 110 V 170" />
+            </g>
+            <path
+              class="arrow"
+              d="M 490 250 H 580 M 550 220 L 580 250 L 550 280"
+            />
+            <!-- Desktop computer -->
+            <g class="figure" transform="translate(800 250)">
+              <rect x="-170" y="-150" width="340" height="220" rx="8" />
+              <path d="M -60 70 L -70 120 H 70 L 60 70" />
+              <rect x="-190" y="140" width="380" height="36" rx="6" />
+              <path d="M -150 158 H 150" />
+            </g>
+            <path
+              class="arrow"
+              d="M 1030 250 H 1120 M 1090 220 L 1120 250 L 1090 280"
+            />
+            <!-- Mobile phone -->
+            <g class="figure" transform="translate(1340 250)">
+              <rect x="-90" y="-180" width="180" height="360" rx="24" />
+              <path d="M -30 -150 H 30" />
+              <path d="M -40 150 H 40" />
+            </g>
+          </svg>
+        </div>
+        <p slot="notes">
+          The storefront: you walked in, a person helped you. The desktop: a
+          screen, a keyboard, a mouse, and a lot of room. The phone: a thumb and
+          a small screen, anywhere. Each shift forced a rethink of the
+          interface, not the product.
+        </p>
+      </slidem-slide>
+      <slidem-slide
+        name="Chat window"
+        center
+        in="fade"
+        out="fade"
+        background="--ink"
+      >
+        <div center>
+          <svg
+            class="diagram"
+            viewBox="0 0 1200 760"
+            width="1200"
+            height="760"
+            aria-label="A chat window with an AI assistant: messages back and forth and a text box at the bottom"
+          >
+            <!-- Window -->
+            <rect
+              class="figure"
+              x="100"
+              y="20"
+              width="1000"
+              height="720"
+              rx="24"
+            />
+            <path d="M 100 100 H 1100" />
+            <circle cx="150" cy="60" r="10" />
+            <circle cx="190" cy="60" r="10" />
+            <circle cx="230" cy="60" r="10" />
+            <!-- User message, right -->
+            <rect x="620" y="150" width="400" height="80" rx="24" />
+            <path class="arrow" d="M 670 190 H 970" />
+            <!-- Assistant message, left -->
+            <path
+              class="sparkle"
+              d="M 190 310 L 190 250 M 160 280 H 220 M 170 260 L 210 300 M 210 260 L 170 300"
+            />
+            <rect x="240" y="260" width="560" height="200" rx="24" />
+            <path
+              class="arrow"
+              d="M 290 310 H 750 M 290 360 H 750 M 290 410 H 560"
+            />
+            <!-- User message, right -->
+            <rect x="700" y="500" width="320" height="80" rx="24" />
+            <path class="arrow" d="M 750 540 H 970" />
+            <!-- Input -->
+            <rect
+              class="gate"
+              x="160"
+              y="630"
+              width="880"
+              height="80"
+              rx="40"
+            />
+            <path class="cursor" d="M 210 650 V 690" />
+            <circle class="gate" cx="990" cy="670" r="22" />
+            <path
+              class="gate"
+              d="M 990 682 V 658 M 980 668 L 990 658 L 1000 668"
+            />
+          </svg>
+        </div>
+        <p slot="notes">
+          And now this. A box you type into, and something that types back. The
+          newest interface looks like the oldest one: a conversation.
+        </p>
+      </slidem-slide>
+      <slidem-slide
+        name="The user"
+        center
+        in="fade"
+        out="fade"
+        background="--ink"
+      >
+        <div center>
+          <svg
+            class="diagram"
+            viewBox="0 0 1600 480"
+            width="1600"
+            height="480"
+            aria-label="A user on the left, a product on the right, an interface in between"
+          >
+            <!-- User -->
+            <g class="figure highlight" transform="translate(200 200)">
+              <circle cx="0" cy="-90" r="50" />
+              <path d="M -90 110 V 40 A 90 90 0 0 1 90 40 V 110" />
+            </g>
+            <!-- Arrows -->
+            <path
+              class="arrow"
+              d="M 340 160 H 640 M 610 130 L 640 160 L 610 190"
+            />
+            <path
+              class="arrow"
+              d="M 660 240 H 360 M 390 210 L 360 240 L 390 270"
+            />
+            <!-- Interface -->
+            <rect x="660" y="60" width="280" height="280" rx="8" />
+            <!-- Arrows -->
+            <path
+              class="arrow"
+              d="M 960 160 H 1260 M 1230 130 L 1260 160 L 1230 190"
+            />
+            <path
+              class="arrow"
+              d="M 1280 240 H 980 M 1010 210 L 980 240 L 1010 270"
+            />
+            <!-- Product -->
+            <g class="figure" transform="translate(1400 200)">
+              <path d="M -100 -100 H 100 V 100 H -100 Z" />
+              <path d="M -60 -60 H 60 V 60 H -60 Z" />
+              <path
+                d="M 0 -60 V -100 M 0 60 V 100 M -60 0 H -100 M 60 0 H 100"
+              />
+            </g>
+            <text class="label accent" x="200" y="440">user</text>
+            <text class="label" x="800" y="440">interface</text>
+            <text class="label" x="1400" y="440">product</text>
+          </svg>
+        </div>
+        <p slot="notes">
+          Same picture, different focus. The user changed. The user is no longer
+          only a person. Increasingly it is an agent acting on a person's
+          behalf, and that agent reads and writes text.
+        </p>
+      </slidem-slide>
+      <slidem-slide
+        name="The agent"
+        center
+        in="fade"
+        out="fade"
+        background="--ink"
+      >
+        <div center>
+          <svg
+            class="diagram"
+            viewBox="0 0 1600 480"
+            width="1600"
+            height="480"
+            aria-label="An agent on the left, a product on the right, an interface in between"
+          >
+            <!-- User -->
+            <path
+              class="highlight"
+              d="M 200 100 V 300 M 100 200 H 300 M 129 129 L 271 271 M 271 129 L 129 271"
+            />
+            <!-- Arrows -->
+            <path
+              class="arrow"
+              d="M 340 160 H 640 M 610 130 L 640 160 L 610 190"
+            />
+            <path
+              class="arrow"
+              d="M 660 240 H 360 M 390 210 L 360 240 L 390 270"
+            />
+            <!-- Interface -->
+            <rect x="660" y="60" width="280" height="280" rx="8" />
+            <!-- Arrows -->
+            <path
+              class="arrow"
+              d="M 960 160 H 1260 M 1230 130 L 1260 160 L 1230 190"
+            />
+            <path
+              class="arrow"
+              d="M 1280 240 H 980 M 1010 210 L 980 240 L 1010 270"
+            />
+            <!-- Product -->
+            <g class="figure" transform="translate(1400 200)">
+              <path d="M -100 -100 H 100 V 100 H -100 Z" />
+              <path d="M -60 -60 H 60 V 60 H -60 Z" />
+              <path
+                d="M 0 -60 V -100 M 0 60 V 100 M -60 0 H -100 M 60 0 H 100"
+              />
+            </g>
+            <text class="label accent" x="200" y="440">agent</text>
+            <text class="label" x="800" y="440">interface</text>
+            <text class="label" x="1400" y="440">product</text>
+          </svg>
+        </div>
+        <p slot="notes">
+          Swap the person for an agent and the picture holds. The agent is a
+          user too. It arrives through the same gateway, with the same goal, but
+          with none of the eyes, hands, or patience the interface assumed.
+        </p>
+      </slidem-slide>
+      <slidem-slide
+        name="Agent in the middle"
+        center
+        in="fade"
+        out="fade"
+        background="--ink"
+      >
+        <div center>
+          <svg
+            class="diagram"
+            viewBox="0 0 1600 480"
+            width="1600"
+            height="480"
+            aria-label="A user, an interface, an agent, a second interface, and a product in a row"
+          >
+            <!-- User -->
+            <g class="figure" transform="translate(160 200) scale(0.8)">
+              <circle cx="0" cy="-90" r="50" />
+              <path d="M -90 110 V 40 A 90 90 0 0 1 90 40 V 110" />
+            </g>
+            <path
+              class="arrow"
+              d="M 252 160 H 360 M 335 135 L 360 160 L 335 185"
+            />
+            <path
+              class="arrow"
+              d="M 360 240 H 252 M 277 215 L 252 240 L 277 265"
+            />
+            <!-- Interface -->
+            <rect x="380" y="100" width="200" height="200" rx="8" />
+            <path
+              class="arrow"
+              d="M 600 160 H 700 M 675 135 L 700 160 L 675 185"
+            />
+            <path
+              class="arrow"
+              d="M 700 240 H 600 M 625 215 L 600 240 L 625 265"
+            />
+            <!-- Agent -->
+            <path
+              class="figure"
+              d="M 800 120 V 280 M 720 200 H 880 M 743 143 L 857 257 M 857 143 L 743 257"
+            />
+            <path
+              class="arrow"
+              d="M 900 160 H 1000 M 975 135 L 1000 160 L 975 185"
+            />
+            <path
+              class="arrow"
+              d="M 1000 240 H 900 M 925 215 L 900 240 L 925 265"
+            />
+            <!-- Interface -->
+            <rect
+              class="gate"
+              x="1020"
+              y="100"
+              width="200"
+              height="200"
+              rx="8"
+            />
+            <path
+              class="arrow"
+              d="M 1240 160 H 1340 M 1315 135 L 1340 160 L 1315 185"
+            />
+            <path
+              class="arrow"
+              d="M 1340 240 H 1240 M 1265 215 L 1240 240 L 1265 265"
+            />
+            <!-- Product -->
+            <g class="figure" transform="translate(1440 200) scale(0.8)">
+              <path d="M -100 -100 H 100 V 100 H -100 Z" />
+              <path d="M -60 -60 H 60 V 60 H -60 Z" />
+              <path
+                d="M 0 -60 V -100 M 0 60 V 100 M -60 0 H -100 M 60 0 H 100"
+              />
+            </g>
+            <text class="label" x="160" y="440">user</text>
+            <text class="label" x="480" y="440">interface</text>
+            <text class="label" x="800" y="440">agent</text>
+            <text class="label accent" x="1120" y="440">interface</text>
+            <text class="label" x="1440" y="440">product</text>
+          </svg>
+        </div>
+        <p slot="notes">
+          Now the chain has two interfaces. The person still talks to an
+          interface, but that interface is the agent's. The agent then needs an
+          interface of its own to reach our product. That second interface is
+          the one we have to build, and the agent speaks text.
+        </p>
+      </slidem-slide>
+      <slidem-slide name="Text" center in="fade" out="fade" background="--ink">
+        <h1 uppercase center font-size="480px" color="--accent">text</h1>
+        <p slot="notes">
+          The interface an agent needs is text. Not a screen it has to look at,
+          not buttons it has to find. Words in, words out. That is what we build
+          next.
+        </p>
+      </slidem-slide>
+    </slidem-deck>
+  </body>
+</html>

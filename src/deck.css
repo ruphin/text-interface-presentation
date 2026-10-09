@@ -1,0 +1,83 @@
+/* The deck's palette. Slides refer to these with background="--ink" and color="--ink". */
+:root {
+  --ink: #1b1f24;
+  --paper: #f5f1e8;
+  --accent: #ffb000;
+  --muted: #8b949e;
+  background: var(--ink);
+}
+
+/* Hide the deck until fonts and slides are ready */
+slidem-deck[loading] {
+  opacity: 0;
+}
+
+slidem-deck {
+  transition: opacity 0.3s;
+}
+
+/* Code blocks on slides */
+slidem-slide pre.code {
+  margin: 48px auto 0;
+  padding: 32px 48px;
+  width: max-content;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 44px;
+  line-height: 1.5;
+  color: var(--paper);
+  background: #0d1117;
+  border-radius: 12px;
+  text-align: left;
+}
+
+/* Line-art diagrams drawn as inline SVG */
+slidem-slide svg.diagram {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+slidem-slide svg.diagram .highlight {
+  stroke: var(--accent);
+}
+
+slidem-slide svg.diagram .gate {
+  stroke: var(--accent);
+}
+
+slidem-slide svg.diagram .arrow {
+  stroke: var(--muted);
+}
+
+slidem-slide svg.diagram .sparkle {
+  stroke: var(--accent);
+}
+
+slidem-slide svg.diagram .cursor {
+  stroke: var(--paper);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+slidem-slide svg.diagram .label {
+  stroke: none;
+  fill: var(--muted);
+  font-size: 44px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-anchor: middle;
+}
+
+slidem-slide svg.diagram .label.accent {
+  fill: var(--accent);
+}

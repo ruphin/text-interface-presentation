@@ -1,0 +1,27 @@
+{
+  "name": "text-interface-presentation",
+  "version": "0.1.0",
+  "description": "A slide deck about text interfaces, built with slidem",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run format:check"
+  },
+  "author": "Goffert van Gool <ruphin@ruphin.net>",
+  "dependencies": {
+    "slidem": "file:vendor/slidem"
+  },
+  "devDependencies": {
+    "@typescript/typescript6": "^6.0.2",
+    "prettier": "^3.9.9",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.3"
+  }
+}
